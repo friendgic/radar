@@ -53,7 +53,7 @@ $(document).ready(function () {
                 let tx=Math.cos(rot)*15+x
                 let ty=Math.sin(rot)*15+y
                 let teamID = data.enemy[i].ei
-                let colorValue = teamID / 30 * 120 + 240
+                let colorValue = teamID / 30 * 200 + 160
                 let color = (eT==1?'#00ff00':'hsl('+colorValue+', 100%, 50%)')
                 str=str+'<circle cx="'+x+'" cy="'+y+'" r="5" stroke="black" stroke-width="1" fill="'+color+'" />'
                 str = str+' <line x1="'+x+'" y1="'+y+'" x2="'+tx+'" y2="'+ty+'" style="stroke:'+color+';stroke-width:2" />'
