@@ -67,8 +67,11 @@ $(document).ready(function () {
                 str = str+' <line x1="'+x+'" y1="'+y+'" x2="'+tx+'" y2="'+ty+'" style="stroke:'+color+';stroke-width:2" />'
             }
            
-            mx/=data.enemy.length
-            my/=data.enemy.length
+            if(data.enemy.length>0){
+
+                mx/=data.enemy.length
+                my/=data.enemy.length
+            }
             str+='</svg>'
             drawSvg.append(str)
             
