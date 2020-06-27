@@ -13,7 +13,7 @@ $(document).ready(function () {
         imgLoad = true
         mapCtx.drawImage(this, 0, 0);
     };
-    img.src = 'Miramar.bmp';
+    img.src = 'https://raw.githubusercontent.com/friendgic/radar/master/public/Miramar.bmp';
 
 
     $('#butShaMo').click(() => {
