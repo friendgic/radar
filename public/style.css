@@ -1,0 +1,15 @@
+body{
+    margin:0px
+}
+
+#mapCanvas{
+    position: absolute;    
+}
+#drawSvg{
+    position: absolute;  
+    z-index:1;  
+}
+.topButton{
+    z-index: 90;
+    position: relative;
+}
