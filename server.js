@@ -32,7 +32,7 @@ app.post('/CMD', function (req, res) {
       mx = dat['mx']
       my = dat['my']
       enemyLength = parseFloat(dat['enemylength'])
-      //console.log('el:'+enemyLength)
+      console.log('el:'+enemyLength)
       
       for(var i=0;i<enemyLength;i++){
         var ex = dat['ex'+i]
