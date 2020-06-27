@@ -71,6 +71,8 @@ $(document).ready(function () {
                 str = str + '<div style="color:black">💐支持我一下,我会做的更好 '
                 str = str + '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input type="hidden" name="cmd" value="_s-xclick" /><input type="hidden" name="hosted_button_id" value="F978LMRHDYA3C" /><input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" /> </form>'
                 $('#butInfo').html(str)
+            }else{
+                $('#butInfo').html('')
             }
         });
     }, 500);
