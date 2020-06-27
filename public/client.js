@@ -38,8 +38,11 @@ $(document).ready(function () {
             //console.log(result)
             data = result
             
-            let mx = data.mx/100
-            let my = data.my/100
+            //let mx = data.mx/100
+            //let my = data.my/100
+            
+            let mx = 0
+            let my = 0
             let screenWidth = $( window ).width();
             let screenHeight = $( window ).height();
             let str = '<svg height="8192" width="8192">'
@@ -48,6 +51,8 @@ $(document).ready(function () {
             for(var i =0;i<data.enemy.length;i++){
                 let x = data.enemy[i].ex/100
                 let y = data.enemy[i].ey/100
+                mx+=x
+                my+=y
                 let eT = data.enemy[i].eT*1
                 let rot = data.enemy[i].er/180*3.1415 
                 let tx=Math.cos(rot)*15+x
@@ -62,6 +67,8 @@ $(document).ready(function () {
                 str = str+' <line x1="'+x+'" y1="'+y+'" x2="'+tx+'" y2="'+ty+'" style="stroke:'+color+';stroke-width:2" />'
             }
            
+            mx/=data.enemy.length
+            my/=data.enemy.length
             str+='</svg>'
             drawSvg.append(str)
             
