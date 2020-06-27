@@ -22,7 +22,7 @@ $(document).ready(function () {
             imgLoad = true
             mapCtx.drawImage(this, 0, 0);
         };
-        img.src = 'Miramar.bmp';
+        img.src = 'https://raw.githubusercontent.com/friendgic/radar/master/public/Miramar.bmp';
     })
     $('#butHaiDao').click(() => {
         img = new Image;
@@ -30,13 +30,13 @@ $(document).ready(function () {
             imgLoad = true
             mapCtx.drawImage(this, 0, 0);
         };
-        img.src = 'Erangel.bmp';
+        img.src = 'https://raw.githubusercontent.com/friendgic/radar/master/public/Erangel.bmp';
     })
 
     setInterval(function () {
         var url = window.location.href;
         $.post(url + "CMD", { CMD: 'Fetch' }, function (result) {
-            console.log(result)
+           // console.log(result)
             data = result
             
             let mx = data.mx/100
@@ -52,7 +52,7 @@ $(document).ready(function () {
                 let eT = data.enemy[i].eT*1
                 str=str+'<circle cx="'+x+'" cy="'+y+'" r="5" stroke="black" stroke-width="1" fill="'+(eT==1?'#00ff00':'#ff0000')+'" />'
             }
-            
+           
             str+='</svg>'
             drawSvg.append(str)
             

@@ -1,5 +1,5 @@
 var express = require("express");
-var port = 1200;
+var port = 1224;
 var app = express(); 
 var bodyParser = require("body-parser");
 var path = require('path');
