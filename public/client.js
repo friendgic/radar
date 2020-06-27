@@ -13,16 +13,15 @@ $(document).ready(function () {
         imgLoad = true
         mapCtx.drawImage(this, 0, 0);
     };
-    img.src = 'https://raw.githubusercontent.com/friendgic/radar/master/public/Miramar.bmp';
-
-
+    img.src = 'Miramar.jpg';
+ 
     $('#butShaMo').click(() => {
         img = new Image;
         img.onload = function () {
             imgLoad = true
             mapCtx.drawImage(this, 0, 0);
         };
-        img.src = 'https://raw.githubusercontent.com/friendgic/radar/master/public/Miramar.bmp';
+        img.src = 'Miramar.jpg';
     })
     $('#butHaiDao').click(() => {
         img = new Image;
@@ -30,7 +29,7 @@ $(document).ready(function () {
             imgLoad = true
             mapCtx.drawImage(this, 0, 0);
         };
-        img.src = 'https://raw.githubusercontent.com/friendgic/radar/master/public/Erangel.bmp';
+        img.src = 'Erangel.jpg';
     })
 
     setInterval(function () {
