@@ -54,7 +54,7 @@ $(document).ready(function () {
                 let ty=Math.sin(rot)*15+y
                 let teamID = data.enemy[i].ei
  
-                let colorValue = teamID / 30 * 200 + 160 + 99
+                let colorValue = teamID / 30 * 200 + 160 
  
                 //test 
                 let color = (eT==1?'#00ff00':'hsl('+colorValue+', 100%, 50%)')
