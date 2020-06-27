@@ -12,4 +12,5 @@ body{
 .topButton{
     z-index: 90;
     position: relative;
+    text-align: center;
 }
