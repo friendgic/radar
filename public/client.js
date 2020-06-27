@@ -1,36 +1,37 @@
+// client-side js
+
 
 $(document).ready(function () {
 
-    var data = [] 
+    var data = []
+    var imgLoad = false
     var mapCanvas = $('#mapCanvas');
     var drawSvg = $('#drawSvg');
     var mapCtx = mapCanvas[0].getContext("2d"); 
-     var img_shamo = new Image; 
-    img_shamo.onload = function () {
-        img_shamo_loaded = true;
+    var img = new Image;
+    img.onload = function () {
+        imgLoad = true
         mapCtx.drawImage(this, 0, 0);
     };
-    img_shamo.src = 'https://raw.githubusercontent.com/friendgic/radar/master/public/Miramar.bmp';
-
-    var img_haidao = new Image;
-    var img_haidao_loaded = false;
-    img_haidao.onload = function () {
-        img_haidao_loaded = true;
-    };
-    img_haidao.src = 'https://raw.githubusercontent.com/friendgic/radar/master/public/Erangel.bmp';
+    img.src = 'https://raw.githubusercontent.com/friendgic/radar/master/public/Miramar.bmp';
 
 
     $('#butShaMo').click(() => {
-        if(img_shamo_loaded){
-             mapCtx.drawImage(img_shamo, 0, 0);
-        }
-        
-     })
+        img = new Image;
+        img.onload = function () {
+            imgLoad = true
+            mapCtx.drawImage(this, 0, 0);
+        };
+        img.src = 'https://raw.githubusercontent.com/friendgic/radar/master/public/Miramar.bmp';
+    })
     $('#butHaiDao').click(() => {
-         if(img_haidao_loaded){
-             mapCtx.drawImage(img_haidao, 0, 0);
-        }
-     })
+        img = new Image;
+        img.onload = function () {
+            imgLoad = true
+            mapCtx.drawImage(this, 0, 0);
+        };
+        img.src = 'https://raw.githubusercontent.com/friendgic/radar/master/public/Erangel.bmp';
+    })
 
     setInterval(function () {
         var url = window.location.href;
