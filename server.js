@@ -23,6 +23,7 @@ app.get('/', function (req, res) {
 
 var mx,my,enemyLength
 var enemy=[]
+var passid = 0;
 
 app.post('/CMD', function (req, res) {
     var dat = req.body
@@ -49,8 +50,20 @@ app.post('/CMD', function (req, res) {
     }
 
     if(dat['CMD']=='Fetch'){
-       
-      res.send({mx:mx,my:my,enemy:enemy})
+      if(dat['passID']==passid){
+        //console.log('pass')
+        res.send({mx:mx,my:my,enemy:enemy})
+      }
+      else{
+        //console.log('notpass')
+        res.send({mx:0,my:0,enemy:[]})
+      }
+    }
+
+    if(dat['CMD']=='addpassid'){
+      passid++;
+      //console.log('pass ++ '+passid)
+      res.send({passID:passid})
     }
     
   }

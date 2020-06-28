@@ -2,7 +2,7 @@
 
 
 $(document).ready(function () {
-
+    var passID = prompt("请输入 id", "");
     var data = []
     var imgLoad = false
     var mapCanvas = $('#mapCanvas');
@@ -31,10 +31,20 @@ $(document).ready(function () {
         };
         img.src = 'Erangel.jpg';
     })
+    $('#butDebug').click(()=>{
+        var cmd = prompt("当前版本v1.01", "");
+        if(cmd=='addpassid'){
+            var url = window.location.href;
+            $.post(url + "CMD", { CMD: 'addpassid' }, function (result) {
+                passID = result['passID']
+                window.alert("passID="+passID)
+            })
+        }
+    })
 
     setInterval(function () {
         var url = window.location.href;
-        $.post(url + "CMD", { CMD: 'Fetch' }, function (result) {
+        $.post(url + "CMD", { CMD: 'Fetch',passID:passID }, function (result) {
             //console.log(result)
             data = result
             
