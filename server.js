@@ -58,13 +58,13 @@ app.post('/CMD', function (req, res) {
         //console.log('notpass')
         res.send({mx:0,my:0,enemy:[]})
       }
-    }
-
-    if(dat['CMD']=='addpassid'){
-      passid++;
-      //console.log('pass ++ '+passid)
-      res.send({passID:passid})
-    }
-    
-  }
+    } 
+  } 
 )
+
+app.post('/SetPass', function (req, res) {
+  var dat = req.body
+  passid = dat['pass']*1
+  console.log('set pass '+passid)
+  res.send({passID:passid})
+})

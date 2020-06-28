@@ -33,14 +33,18 @@ $(document).ready(function () {
     })
     $('#butDebug').click(()=>{
         var cmd = prompt("当前版本v1.01", "");
-        if(cmd=='addpassid'){
-            var url = window.location.href;
-            $.post(url + "CMD", { CMD: 'addpassid' }, function (result) {
-                passID = result['passID']
-                window.alert("passID="+passID)
-            })
+        var first = cmd.split(' ')
+        if(first.length==2){ 
+            if(first[0]=='pass'){
+                var url = window.location.href;
+                $.post(url + "SetPass", { pass: first[1]*1 }, function (result) {
+                    passID = result['passID'] 
+                    $('#butDebug').text(passID)
+                })
+            }
         }
     })
+    $('#butDebug').text(passID)
 
     setInterval(function () {
         var url = window.location.href;
