@@ -43,6 +43,16 @@ $(document).ready(function () {
         };
         img.src = 'Savage.jpg';
     })
+    $('#butXueDi').click(() => {
+        img = new Image;
+        img.onload = function () {
+            imgLoad = true
+            mapCtx.clearRect(0,0,8192,8192);
+
+            mapCtx.drawImage(this, 0, 0);
+        };
+        img.src = 'Vikendi.jpg';
+    })
     $('#butDebug').click(()=>{
         var cmd = prompt("当前版本v1.01", "");
         var first = cmd.split(' ')
