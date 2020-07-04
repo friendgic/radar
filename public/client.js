@@ -102,9 +102,17 @@ $(document).ready(function () {
                 str=str+'<circle cx="'+x+'" cy="'+y+'" r="5" stroke="black" stroke-width="1" fill="'+color+'" />'
                 str = str+' <line x1="'+x+'" y1="'+y+'" x2="'+tx+'" y2="'+ty+'" style="stroke:'+color+';stroke-width:2" />'
             }
-           
-            if(data.enemy.length>0){
+            
+            for(var i=0;i<data.car.length;i++){
+                let x = data.car[i].cx/100;
+                let y = data.car[i].cy/100;
+                let z = data.car[i].cz
 
+                str=str+'<text x="'+x+'" y="'+y+'" fill="#bef5b8">'+z+'</text> '
+                
+                // <text x="0" y="15" fill="red">I love SVG!</text>
+            }
+            if(data.enemy.length>0){ 
                 mx/=data.enemy.length
                 my/=data.enemy.length
             }
