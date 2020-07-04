@@ -109,6 +109,7 @@ $(document).ready(function () {
                 let z = data.car[i].cz
 
                 str=str+'<text x="'+x+'" y="'+y+'" fill="#bef5b8">'+z+'</text> '
+                str=str+'<rect x="'+(x-5)+'" y="'+(y-5)+'" width ="10" height="10" stroke="black" stroke-width="1" fill="#bef5b8" />'
                 
                 // <text x="0" y="15" fill="red">I love SVG!</text>
             }
