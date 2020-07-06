@@ -24,6 +24,7 @@ app.get('/', function (req, res) {
 var mx,my,enemyLength
 var enemylist=[]
 var carlist=[]
+var itemlist=[]
 var passid = 0;
 
 app.post('/CMD', function (req, res) {
@@ -32,6 +33,7 @@ app.post('/CMD', function (req, res) {
     if(dat['CMD']==='Refresh'){
       enemylist=[]
       carlist=[]
+      itemlist=[]
       mx = dat['mx']
       my = dat['my']
       enemyLength = parseFloat(dat['enemylength'])
@@ -43,7 +45,8 @@ app.post('/CMD', function (req, res) {
         var eT = dat['eT'+i]
         var er = dat['er'+i]
         var ei = dat['ei'+i]
-        enemylist.push({id:i,ex:ex,ey:ey,eT:eT,er:er,ei:ei})
+        var eh = dat['eh'+i]
+        enemylist.push({id:i,ex:ex,ey:ey,eT:eT,er:er,ei:ei,eh:eh})
       }
 
       carlength =  parseFloat(dat['carlength'])
@@ -53,8 +56,15 @@ app.post('/CMD', function (req, res) {
         var cy = dat['cy'+i]
         var cz = dat['cz'+i]
         carlist.push({id:i,cx:cx,cy:cy,cz:cz})
-      }
-      //console.log(enemy)
+      } 
+
+      itemlength = parseFloat(dat['itemlength'])
+      for(var i=0;i<itemlength;i++){
+        var ix = dat['ix'+i]
+        var iy = dat['iy'+i]
+        var iz = dat['iz'+i]
+        itemlist.push({id:i,ix:ix,iy:iy,iz:iz})
+      } 
 
       res.send({data:0})
     }
@@ -62,11 +72,11 @@ app.post('/CMD', function (req, res) {
     if(dat['CMD']=='Fetch'){
       if(dat['passID']==passid){
         //console.log('pass')
-        res.send({mx:mx,my:my,enemy:enemylist,car:carlist})
+        res.send({mx:mx,my:my,enemy:enemylist,car:carlist,items:itemlist})
       }
       else{
         //console.log('notpass')
-        res.send({mx:0,my:0,enemy:[],car:[]})
+        res.send({mx:0,my:0,enemy:[],car:[],items:[]})
       }
     } 
   } 

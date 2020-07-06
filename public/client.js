@@ -93,6 +93,7 @@ $(document).ready(function () {
                 let rot = data.enemy[i].er/180*3.1415 
                 let tx=Math.cos(rot)*15+x
                 let ty=Math.sin(rot)*15+y
+                let health = data.enemy[i].eh
                 let teamID = data.enemy[i].ei
  
                 let colorValue = teamID / 30 * 200 + 160 
@@ -101,15 +102,57 @@ $(document).ready(function () {
                 let color = (eT==1?'#00ff00':'hsl('+colorValue+', 100%, 50%)')
                 str=str+'<circle cx="'+x+'" cy="'+y+'" r="5" stroke="black" stroke-width="1" fill="'+color+'" />'
                 str = str+' <line x1="'+x+'" y1="'+y+'" x2="'+tx+'" y2="'+ty+'" style="stroke:'+color+';stroke-width:2" />'
+                str=str+'<text x="'+(x+10)+'" y="'+y+'" fill="#00ff00">'+health+'</text> '
+              
             }
             
+            if(document.getElementById('cca').checked)
             for(var i=0;i<data.car.length;i++){
                 let x = data.car[i].cx/100;
                 let y = data.car[i].cy/100;
                 let z = data.car[i].cz
 
-                str=str+'<text x="'+x+'" y="'+y+'" fill="#bef5b8">'+z+'</text> '
                 str=str+'<rect x="'+(x-5)+'" y="'+(y-5)+'" width ="10" height="10" stroke="black" stroke-width="1" fill="#bef5b8" />'
+                str=str+'<text x="'+x+'" y="'+y+'" fill="#bef5b8">'+z+'</text> '
+                
+                // <text x="0" y="15" fill="red">I love SVG!</text>
+            }
+
+             
+            for(var i=0;i<data.items.length;i++){
+                let x = data.items[i].ix/100;
+                let y = data.items[i].iy/100;
+                let name = data.items[i].iz;
+                let show = false
+                if(document.getElementById('cwq').checked &&
+                name.includes("+")){
+                    show = true
+                }
+                if(document.getElementById('czd').checked &&
+                (name==="7"||name==="5")){
+                    show = true
+                }
+                if(document.getElementById('cpj').checked &&
+                name.includes("-")){
+                    show = true
+                }
+
+                if(document.getElementById('cxh').checked &&
+                name.includes(">>")){
+                    show = true
+                }
+                   
+                   if(show){
+                      
+                if(name.includes(">>")){
+                    str=str+'<text x="'+x+'" y="'+y+'" fill="#ff1100" font-size="20px">'+name+'</text> '
+                    str=str+'<rect x="'+(x-2)+'" y="'+(y-2)+'" width ="5" height="5" stroke="black" stroke-width="1" fill="#ff1100" />'
+                }else{
+                    str=str+'<text x="'+x+'" y="'+y+'" fill="#ffffff" font-size="10px">'+name+'</text> '
+                    str=str+'<rect x="'+(x-2)+'" y="'+(y-2)+'" width ="5" height="5" stroke="black" stroke-width="1" fill="#00bbff" />'
+         
+                } 
+                }
                 
                 // <text x="0" y="15" fill="red">I love SVG!</text>
             }
