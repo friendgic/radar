@@ -93,7 +93,7 @@ $(document).ready(function () {
                 let rot = data.enemy[i].er/180*3.1415 
                 let tx=Math.cos(rot)*15+x
                 let ty=Math.sin(rot)*15+y
-                let health = data.enemy[i].eh
+                let health = parseInt(data.enemy[i].eh)
                 let teamID = data.enemy[i].ei
  
                 let colorValue = teamID / 30 * 200 + 160 
