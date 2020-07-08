@@ -106,9 +106,9 @@ $(document).ready(function () {
                     let y = data.car[i].cy / 100;
                     let z = data.car[i].cz
 
-                    let li = limit(x,y,left,right,top,bottom)
-                    x=li.x
-                    y=li.y
+                    // let li = limit(x,y,left,right,top,bottom)
+                    // x=li.x
+                    // y=li.y
 
                     str = str + '<rect x="' + (x - 5) + '" y="' + (y - 5) + '" width ="10" height="10" stroke="black" stroke-width="1" fill="#bef5b8" />'
                     str = str + '<text x="' + x + '" y="' + y + '" fill="#bef5b8">' + z + '</text> '
