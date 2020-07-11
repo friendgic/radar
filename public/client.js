@@ -168,7 +168,8 @@ $(document).ready(function () {
                         x=x-50;
                         y=y-20;
                     }
-                    str = str + '<text x="' + x + '" y="' + y + '" fill="#ff1100" font-size="20px">' + name + '['+dis+']' + '</text> '
+                    str = str + '<text x="' + x + '" y="' + y + '" fill="#ff1100" font-size="20px">' + name  + '</text> '
+                    str = str + '<text x="' + x + '" y="' + y + '" fill="#ff1100" font-size="20px">['+dis+']</text> '
                     str = str + '<rect x="' + (x - 2) + '" y="' + (y - 2) + '" width ="5" height="5" stroke="black" stroke-width="1" fill="#ff1100" />'
               
                 }
