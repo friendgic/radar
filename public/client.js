@@ -165,11 +165,11 @@ $(document).ready(function () {
                     x=li.x
                     y=li.y 
                     if(li.type=='right' || li.type == 'bottom'){
-                        x=x-50;
-                        y=y-20;
+                        x=x-70;
+                        y=y-10;
                     }
                     str = str + '<text x="' + x + '" y="' + y + '" fill="#ff1100" font-size="20px">' + name  + '</text> '
-                    str = str + '<text x="' + x + '" y="' + y + '" fill="#ff1100" font-size="20px">['+dis+']</text> '
+                    str = str + '<text x="' + x + '" y="' + (y+20) + '" fill="#ff1100" font-size="20px">['+dis+']</text> '
                     str = str + '<rect x="' + (x - 2) + '" y="' + (y - 2) + '" width ="5" height="5" stroke="black" stroke-width="1" fill="#ff1100" />'
               
                 }
