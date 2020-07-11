@@ -1,11 +1,12 @@
 // client-side js
 
 function limit(x,y,left,right,top,bottom){
-    if(x<left) x = left;
-    if(x>right) x = right;
-    if(y<top) y = top;
-    if(y>bottom) y = bottom;
-    return {x:x,y:y}
+    let type = 'left'
+    if(x<left){ x = left; type = 'left';}
+    if(x>right){ x = right; type = 'right';}
+    if(y<top) {y = top; type = 'top';}
+    if(y>bottom){ y = bottom; type = 'bottom';}
+    return {x:x,y:y,type:type}
 }
 
 $(document).ready(function () {
@@ -90,10 +91,10 @@ $(document).ready(function () {
             let screenHeight = $(window).height();
             let str = '<svg height="8192" width="8192">'
 
-            var left = -$(mapCanvas).position().left + 10
-            var right = -$(mapCanvas).position().left + screenWidth -10
-            var top = -$(mapCanvas).position().top   + 30
-            var bottom = -$(mapCanvas).position().top + screenHeight  -10
+            var left = -$(mapCanvas).position().left + 20
+            var right = -$(mapCanvas).position().left + screenWidth - 20
+            var top = -$(mapCanvas).position().top   + 20
+            var bottom = -$(mapCanvas).position().top + screenHeight  -20
             // var ss = '<rect x ="'+left+'" y="'+top+'" width = "'+(right-left)+'" height="'+(bottom-top)+
             // '" stroke="black" stroke-width="1" fill="#00000000" />'
             // str+=ss
@@ -158,10 +159,16 @@ $(document).ready(function () {
            
 
                 if (name.includes("空投")) { 
+                    dis=parseInt(Math.sqrt((x-mx)*(x-mx) + (y-my)*(y-my)))
+                    
                     li = limit(x,y,left,right,top,bottom)
                     x=li.x
                     y=li.y 
-                    str = str + '<text x="' + x + '" y="' + y + '" fill="#ff1100" font-size="20px">' + name + '</text> '
+                    if(li.type=='right' || li.type == 'bottom'){
+                        x=x-50;
+                        y=y-20;
+                    }
+                    str = str + '<text x="' + x + '" y="' + y + '" fill="#ff1100" font-size="20px">' + name + '['+dis+']' + '</text> '
                     str = str + '<rect x="' + (x - 2) + '" y="' + (y - 2) + '" width ="5" height="5" stroke="black" stroke-width="1" fill="#ff1100" />'
               
                 }
@@ -195,7 +202,7 @@ $(document).ready(function () {
                 str = str + '<circle cx="' + x + '" cy="' + y + '" r="5" stroke="black" stroke-width="1" fill="' + color + '" />'
                 str = str + ' <line x1="' + x + '" y1="' + y + '" x2="' + tx + '" y2="' + ty + '" style="stroke:' + color + ';stroke-width:2" />'
                 str = str + '<text x="' + (x + 10) + '" y="' + y + '" fill="#00ff00">' + health + '</text> '
-
+                str = str + '<text x="' + (x + 10) + '" y="' + (y+20) + '" fill="#00ff00">' + parseInt(teamID) + '</text> '
             }
  
             if (data.enemy.length > 0) {
